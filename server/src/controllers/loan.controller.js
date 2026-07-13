@@ -199,22 +199,22 @@ export default {
 
             if (!loan) {
                 await transaction.rollback();
-                res.status(404).json({
+                return res.status(404).json({
                     message: "Loan not found",
                 });
             }
 
-            if (!loan.status === "pending") {
+            if (loan.status !== "pending") {
                 await transaction.rollback();
-                res.status(400).json({
+                return res.status(400).json({
                     message: "Loan is not pending",
                 });
             }
 
             const tool = await Tool.findByPk(loan.toolId, { transaction });
-            if (!tool || tool.stock < 1) {
+            if (!tool) {
                 await transaction.rollback();
-                res.status(400).json({
+                return res.status(400).json({
                     message: "Tool is not available",
                 });
             }
@@ -237,12 +237,12 @@ export default {
                 `${req.user.fullName} canceled a loan request for: ${tool.name}`,
             );
 
-            res.status(201).json({
+            return res.status(201).json({
                 message: "Loan request canceled.",
             });
         } catch (error) {
             await transaction.rollback();
-            res.status(500).json({
+            return res.status(500).json({
                 message: "Couldn't process the cancel. Something's off.",
                 error: error.message,
             });
@@ -323,22 +323,22 @@ export default {
 
             if (!loan) {
                 await transaction.rollback();
-                res.status(404).json({
+                return res.status(404).json({
                     message: "Loan not found",
                 });
             }
 
-            if (!loan.status === "pending") {
+            if (loan.status !== "pending") {
                 await transaction.rollback();
-                res.status(400).json({
+                return res.status(400).json({
                     message: "Loan is not pending",
                 });
             }
 
             const tool = await Tool.findByPk(loan.toolId, { transaction });
-            if (!tool || tool.stock < 1) {
+            if (!tool) {
                 await transaction.rollback();
-                res.status(400).json({
+                return res.status(400).json({
                     message: "Tool is not available",
                 });
             }
@@ -361,12 +361,12 @@ export default {
                 `${req.user.fullName} rejected a loan request for: ${tool.name}`,
             );
 
-            res.status(201).json({
+            return res.status(201).json({
                 message: "Loan request rejected.",
             });
         } catch (error) {
             await transaction.rollback();
-            res.status(500).json({
+            return res.status(500).json({
                 message: "Couldn't process the rejection. Something's off.",
                 error: error.message,
             });
@@ -391,7 +391,7 @@ export default {
             const tool = await Tool.findByPk(loan.toolId, { transaction });
 
 
-            const imagePath = req.file ? `uploads/${req.file.filename}` : null
+            const imagePath = req.file ? `/uploads/${req.file.filename}` : null
 
             await loan.update(
                 {
@@ -431,6 +431,13 @@ export default {
         try {
             const loan = await Loan.findByPk(id, { transaction })
 
+            if (!loan) {
+                await transaction.rollback()
+                return res.status(404).json({
+                    message: "Loan not found"
+                })
+            }
+
             if (loan.status !== "verifying") {
                 await transaction.rollback()
                 return res.status(400).json({
@@ -462,13 +469,13 @@ export default {
                 `${req.user.fullName} verified the return of: ${tool?.name || "Unknown"}`,
             );
 
-            res.status(200).json({
+            return res.status(200).json({
                 message: "Return verified successfully. The tool is now back in stock!",
                 data: loan
             })
         } catch (error) {
             await transaction.rollback()
-            res.status(500).json({
+            return res.status(500).json({
                 message: "There was an error while processing the verification.",
                 error: error.message
             })

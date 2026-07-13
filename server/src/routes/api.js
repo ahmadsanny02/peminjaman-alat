@@ -44,6 +44,7 @@ router.delete(
 
 // Management Tool
 router.get("/tools", toolController.getAllTools);
+router.get("/tools/:id", toolController.getToolById);
 router.post(
     "/tools",
     checkRole(["admin"]),
