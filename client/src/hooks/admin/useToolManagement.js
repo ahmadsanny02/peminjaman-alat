@@ -168,12 +168,10 @@ export function useTool() {
 
             resetForm();
             fetchTools();
+            setError("");
 
             setSuccess(response?.data?.message);
         } catch (err) {
-            resetForm();
-            fetchTools();
-
             setError(err.response?.data?.message);
         } finally {
             setIsLoading(false);

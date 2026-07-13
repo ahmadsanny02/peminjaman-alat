@@ -45,9 +45,9 @@ export const useLogin = () => {
                 return router.push("/borrower");
             }
         } catch (err) {
-            const errorMessage = err.response?.data?.message;
+            const errorMessage = err.response?.data?.message || "Koneksi ke server gagal. Pastikan server aktif.";
 
-            if (errorMessage.toLowerCase().includes("username")) resetField("username")
+            if (errorMessage && errorMessage.toLowerCase().includes("username")) resetField("username")
 
             resetField("password");
             setServerError(errorMessage);

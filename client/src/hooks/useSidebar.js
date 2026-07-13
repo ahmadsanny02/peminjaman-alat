@@ -9,9 +9,10 @@ import {
 import { useEffect, useState } from "react";
 import { useLogout } from "./auth/useLogout";
 import { usePathname } from "next/navigation";
+import Cookies from "js-cookie";
 
 export function useSidebar() {
-    const { handleLogout, Cookies } = useLogout();
+    const { handleLogout } = useLogout();
 
     const pathname = usePathname();
 
@@ -24,8 +25,10 @@ export function useSidebar() {
         const userCookie = Cookies.get("user");
         if (userCookie) {
             const parsedUser = JSON.parse(userCookie);
-            setUserRole(parsedUser.role);
-            setUserName(parsedUser.fullName);
+            setTimeout(() => {
+                setUserRole(parsedUser.role);
+                setUserName(parsedUser.fullName);
+            }, 0);
         }
     }, []);
 

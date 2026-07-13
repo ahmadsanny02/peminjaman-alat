@@ -84,7 +84,6 @@ export function useCategory() {
             setSuccess(response?.data?.message);
         } catch (err) {
             setError(err.response?.data?.message);
-            resetForm();
         } finally {
             setIsLoading(false);
         }

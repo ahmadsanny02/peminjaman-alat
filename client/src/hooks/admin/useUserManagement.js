@@ -83,8 +83,9 @@ export const useUserManagement = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.fullName || !formData.password || !formData.role) {
-            alert("Semua field harus diisi!");
+        if (!formData.fullName || !formData.role) {
+            alert("Nama Lengkap dan Role harus diisi!");
+            return;
         }
 
         setIsLoading(true);
