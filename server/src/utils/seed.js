@@ -19,44 +19,26 @@ const seedDatabase = async () => {
 
         // 1. Seed Users (with hashed passwords)
         const salt = await bcrypt.genSalt(10);
-        const passwordAdmin = await bcrypt.hash("Admin123!", salt);
-        const passwordPetugas = await bcrypt.hash("Petugas123!", salt);
-        const passwordPeminjam = await bcrypt.hash("Peminjam123!", salt);
+        const passwordAdmin = await bcrypt.hash("Admin Web 1", salt);
+        const passwordPetugas = await bcrypt.hash("Petugas Web 1", salt);
+        const passwordPeminjam = await bcrypt.hash("Peminjam Web 1", salt);
 
         const users = await User.bulkCreate([
             {
-                fullName: "Admin Utama",
-                username: "admin1",
+                fullName: "Administrator",
+                username: "admin",
                 password: passwordAdmin,
                 role: "admin",
             },
             {
-                fullName: "Siti Rahma",
-                username: "petugas1",
+                fullName: "Petugas Web",
+                username: "petugas",
                 password: passwordPetugas,
                 role: "petugas",
             },
             {
-                fullName: "Budi Santoso",
-                username: "petugas2",
-                password: passwordPetugas,
-                role: "petugas",
-            },
-            {
-                fullName: "Ahmad Sani",
-                username: "peminjam1",
-                password: passwordPeminjam,
-                role: "peminjam",
-            },
-            {
-                fullName: "Dewi Lestari",
-                username: "peminjam2",
-                password: passwordPeminjam,
-                role: "peminjam",
-            },
-            {
-                fullName: "Rian Hidayat",
-                username: "peminjam3",
+                fullName: "Peminjam Web",
+                username: "peminjam",
                 password: passwordPeminjam,
                 role: "peminjam",
             },
@@ -65,12 +47,9 @@ const seedDatabase = async () => {
         console.log(`- Created ${users.length} users successfully.`);
 
         // Get key user references
-        const adminUser = users.find((u) => u.username === "admin1");
-        const petugas1User = users.find((u) => u.username === "petugas1");
-        const petugas2User = users.find((u) => u.username === "petugas2");
-        const peminjam1User = users.find((u) => u.username === "peminjam1");
-        const peminjam2User = users.find((u) => u.username === "peminjam2");
-        const peminjam3User = users.find((u) => u.username === "peminjam3");
+        const adminUser = users.find((u) => u.username === "admin");
+        const petugasUser = users.find((u) => u.username === "petugas");
+        const peminjamUser = users.find((u) => u.username === "peminjam");
 
         // 2. Seed Categories
         const categories = await Category.bulkCreate([
@@ -172,15 +151,15 @@ const seedDatabase = async () => {
                 borrowDate: today,
                 expectedReturnDate: futureDate(3),
                 toolId: toolBor.id,
-                borrowerId: peminjam1User.id,
+                borrowerId: peminjamUser.id,
             },
             {
                 status: "approved",
                 borrowDate: today,
                 expectedReturnDate: futureDate(5),
                 toolId: toolMultimeter.id,
-                borrowerId: peminjam2User.id,
-                officerId: petugas1User.id,
+                borrowerId: peminjamUser.id,
+                officerId: petugasUser.id,
             },
             {
                 status: "returned",
@@ -188,8 +167,8 @@ const seedDatabase = async () => {
                 expectedReturnDate: today,
                 actualReturnDate: today,
                 toolId: toolKunci.id,
-                borrowerId: peminjam3User.id,
-                officerId: petugas2User.id,
+                borrowerId: peminjamUser.id,
+                officerId: petugasUser.id,
             },
             {
                 status: "verifying",
@@ -198,15 +177,15 @@ const seedDatabase = async () => {
                 actualReturnDate: today,
                 image: "/uploads/bukti.png",
                 toolId: toolHelm.id,
-                borrowerId: peminjam1User.id,
-                officerId: petugas1User.id,
+                borrowerId: peminjamUser.id,
+                officerId: petugasUser.id,
             },
             {
                 status: "canceled",
                 borrowDate: today,
                 expectedReturnDate: futureDate(4),
                 toolId: toolGergaji.id,
-                borrowerId: peminjam2User.id,
+                borrowerId: peminjamUser.id,
             },
         ]);
 
@@ -225,17 +204,17 @@ const seedDatabase = async () => {
                 description: "Admin Utama added a new tool: Bor Listrik Bosch",
             },
             {
-                userId: peminjam1User.id,
+                userId: peminjamUser.id,
                 action: "LOAN APPLICATION",
                 description: "Ahmad Sani just requested to borrow: Bor Listrik Bosch",
             },
             {
-                userId: petugas1User.id,
+                userId: petugasUser.id,
                 action: "APPROVE LOAN",
                 description: "Siti Rahma approved the loan for 'Multimeter Digital Fluke'",
             },
             {
-                userId: peminjam3User.id,
+                userId: peminjamUser.id,
                 action: "RETURN LOAN",
                 description: "Rian Hidayat validated the return of: Set Kunci Pas Tekiro",
             },
