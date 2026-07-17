@@ -234,7 +234,7 @@ export default function CategoryManagementContent() {
                                         ))}
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-slate-100">{content}</tbody>
+                                <tbody className="">{content}</tbody>
                             </table>
 
                             <ConfirmationModal
