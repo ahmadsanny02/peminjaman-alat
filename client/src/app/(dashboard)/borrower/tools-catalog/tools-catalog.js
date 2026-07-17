@@ -106,44 +106,46 @@ export default function CatalogContent() {
     }
 
     return (
-        <div className="flex flex-col justify-between h-full space-y-6">
-            <div className="space-y-6">
-                {/* Header */}
-                <HeaderPage
-                    icon={<PackageSearch className="text-emerald-600" size={32} />}
-                    title="Katalog Alat"
-                />
-
-                {/* Alert Messages */}
-                {(error || success) && (
-                    <Alert
-                        type={error ? "error" : "success"}
-                        message={error || success}
+        <>
+            <div className="flex flex-col justify-between h-full space-y-6">
+                <div className="space-y-6">
+                    {/* Header */}
+                    <HeaderPage
+                        icon={<PackageSearch className="text-emerald-600" size={32} />}
+                        title="Katalog Alat"
                     />
-                )}
 
-                {/* Filter and Search Data */}
-                <FilterAndSearchData
-                    hiddenSearchData={!false}
-                    placeHolderName="Cari nama alat..."
-                    sort={(e) => updateFilters("sort", e.target.value)}
-                    search={(e) => handleSearch(e.target.value)}
-                    showBy={(e) => updateFilters("category", e.target.value)}
-                    hiddenFilterData={!false}
-                    label="Kategori"
-                >
-                    {categories.map((cat) => (
-                        <option key={cat.id} className="bg-white/20 text-black">
-                            {cat.name}
-                        </option>
-                    ))}
-                </FilterAndSearchData>
+                    {/* Alert Messages */}
+                    {(error || success) && (
+                        <Alert
+                            type={error ? "error" : "success"}
+                            message={error || success}
+                        />
+                    )}
 
-                {/* Main Content */}
-                {content}
+                    {/* Filter and Search Data */}
+                    <FilterAndSearchData
+                        hiddenSearchData={!false}
+                        placeHolderName="Cari nama alat..."
+                        sort={(e) => updateFilters("sort", e.target.value)}
+                        search={(e) => handleSearch(e.target.value)}
+                        showBy={(e) => updateFilters("category", e.target.value)}
+                        hiddenFilterData={!false}
+                        label="Kategori"
+                    >
+                        {categories.map((cat) => (
+                            <option key={cat.id} className="bg-white/20 text-black">
+                                {cat.name}
+                            </option>
+                        ))}
+                    </FilterAndSearchData>
+
+                    {/* Main Content */}
+                    {content}
+                </div>
+
+                <Pagination page={page} totalData={totalItems} totalPages={totalPages} />
             </div>
-
-            <Pagination page={page} totalData={totalItems} totalPages={totalPages} />
 
             {/* Modal Pengajuan Peminjaman */}
             {selectedTool && (
@@ -225,6 +227,6 @@ export default function CatalogContent() {
                     </form>
                 </Modal>
             )}
-        </div>
+        </>
     );
 }
