@@ -1,9 +1,13 @@
-export default function Modal({ isOpen, children, customClass }) {
+export default function Modal({ isOpen, children, customClass = "", onClose }) {
     if (!isOpen) return null;
 
     return (
-        <div className={`bg-black/50 h-full z-10 ${customClass} p-5`}>
-            <div className="bg-white text-black rounded-lg shadow-lg w-150 p-6 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/40 backdrop-blur-sm transition-all duration-300">
+            <div
+                className="absolute inset-0"
+                onClick={onClose}
+            />
+            <div className={`relative bg-white text-slate-800 rounded-2xl shadow-2xl max-w-xl w-full p-6 sm:p-8 border border-slate-200/80 z-10 animate-fade-in-up ${customClass}`}>
                 {children}
             </div>
         </div>
