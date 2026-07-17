@@ -99,91 +99,6 @@ export default function CatalogContent() {
                             </button>
                         </div>
 
-                        {selectedTool?.id === tool.id ? (
-                            <Modal
-                                customClass={
-                                    showForm
-                                        ? "fixed inset-0 h-full flex items-center justify-center z-50"
-                                        : "hidden"
-                                }
-                                isOpen={openRequestForm}
-                            >
-                                {/* Header */}
-                                <HeaderForm
-                                    icon={<Package size={22} className="text-emerald-600" />}
-                                    title="Pengajuan Peminjaman Alat"
-                                />
-
-                                {/* Form */}
-                                <form onSubmit={onSubmit} className="space-y-4">
-                                    <input type="hidden" {...register("toolId")} />
-
-                                    <div className="overflow-hidden rounded-xl bg-slate-100 border border-slate-200/60 max-h-56">
-                                        <Image
-                                            src={`http://localhost:5000${tool.image}`}
-                                            alt={tool.name}
-                                            width={500}
-                                            height={500}
-                                            className="w-full h-56 object-cover rounded-xl"
-                                            unoptimized
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <Label name="Nama Alat" />
-                                        <input
-                                            type="text"
-                                            value={tool.name}
-                                            className="w-full px-3.5 py-2.5 border border-slate-200 bg-slate-100 text-slate-600 font-semibold rounded-xl text-sm outline-none"
-                                            disabled
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <Label name="Tenggat Pengembalian" required />
-                                        <input
-                                            type="date"
-                                            {...register("expectedReturnDate")}
-                                            className={`w-full px-3.5 py-2.5 border text-slate-800 rounded-xl focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none text-sm cursor-pointer ${errors.expectedReturnDate ? "border-rose-500" : "border-slate-300/80"}`}
-                                            min={today}
-                                            max={maxDay}
-                                            disabled={isSubmitting}
-                                        />
-                                        {errors.expectedReturnDate && (
-                                            <span className="text-rose-500 text-xs mt-1 block">
-                                                {errors.expectedReturnDate.message}
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    <div className="flex items-center gap-2 pt-2">
-                                        <button
-                                            type="submit"
-                                            disabled={isSubmitting}
-                                            className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-sm font-semibold shadow-md shadow-emerald-600/20 disabled:opacity-50 transition-all cursor-pointer"
-                                        >
-                                            {isSubmitting ? (
-                                                "Memproses..."
-                                            ) : (
-                                                <>
-                                                    <CheckCircle2 size={16} /> Konfirmasi Peminjaman
-                                                </>
-                                            )}
-                                        </button>
-                                        <button
-                                            type="button"
-                                            onClick={closeRequestForm}
-                                            className="p-2.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-xl border border-slate-200 transition-colors cursor-pointer"
-                                            title="Batal"
-                                        >
-                                            <X size={18} />
-                                        </button>
-                                    </div>
-                                </form>
-                            </Modal>
-                        ) : (
-                            ""
-                        )}
                     </div>
                 ))}
             </div>
@@ -229,6 +144,87 @@ export default function CatalogContent() {
             </div>
 
             <Pagination page={page} totalData={totalItems} totalPages={totalPages} />
+
+            {/* Modal Pengajuan Peminjaman */}
+            {selectedTool && (
+                <Modal
+                    isOpen={showForm}
+                    onClose={closeRequestForm}
+                >
+                    {/* Header */}
+                    <HeaderForm
+                        icon={<Package size={22} className="text-emerald-600" />}
+                        title="Pengajuan Peminjaman Alat"
+                    />
+
+                    {/* Form */}
+                    <form onSubmit={onSubmit} className="space-y-4">
+                        <input type="hidden" {...register("toolId")} />
+
+                        <div className="overflow-hidden rounded-xl bg-slate-100 border border-slate-200/60 max-h-56">
+                            <Image
+                                src={`http://localhost:5000${selectedTool.image}`}
+                                alt={selectedTool.name}
+                                width={500}
+                                height={500}
+                                className="w-full h-56 object-cover rounded-xl"
+                                unoptimized
+                            />
+                        </div>
+
+                        <div>
+                            <Label name="Nama Alat" />
+                            <input
+                                type="text"
+                                value={selectedTool.name}
+                                className="w-full px-3.5 py-2.5 border border-slate-200 bg-slate-100 text-slate-600 font-semibold rounded-xl text-sm outline-none"
+                                disabled
+                            />
+                        </div>
+
+                        <div>
+                            <Label name="Tenggat Pengembalian" required />
+                            <input
+                                type="date"
+                                {...register("expectedReturnDate")}
+                                className={`w-full px-3.5 py-2.5 border text-slate-800 rounded-xl focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none text-sm cursor-pointer ${errors.expectedReturnDate ? "border-rose-500" : "border-slate-300/80"}`}
+                                min={today}
+                                max={maxDay}
+                                disabled={isSubmitting}
+                            />
+                            {errors.expectedReturnDate && (
+                                <span className="text-rose-500 text-xs mt-1 block">
+                                    {errors.expectedReturnDate.message}
+                                </span>
+                            )}
+                        </div>
+
+                        <div className="flex items-center gap-2 pt-2">
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-sm font-semibold shadow-md shadow-emerald-600/20 disabled:opacity-50 transition-all cursor-pointer"
+                            >
+                                {isSubmitting ? (
+                                    "Memproses..."
+                                ) : (
+                                    <>
+                                        <CheckCircle2 size={16} /> Konfirmasi Peminjaman
+                                    </>
+                                )}
+                            </button>
+                            <button
+                                type="button"
+                                onClick={closeRequestForm}
+                                className="p-2.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-xl border border-slate-200 transition-colors cursor-pointer"
+                                title="Batal"
+                            >
+                                <X size={18} />
+                            </button>
+                        </div>
+                    </form>
+                </Modal>
+            )}
         </div>
     );
 }
