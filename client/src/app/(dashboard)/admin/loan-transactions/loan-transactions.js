@@ -120,14 +120,15 @@ export default function LoanManagementContent() {
             <div className="space-y-6">
                 {/* Header */}
                 <HeaderPage
-                    icon={<ClipboardList className="text-yellow-600" size={32} />}
+                    icon={<ClipboardList className="text-emerald-600" size={24} />}
                     title="Transaksi Peminjaman"
+                    subtitle="Daftar seluruh riwayat dan transaksi peminjaman alat di sistem."
                 />
 
                 {/* Error Response */}
                 {error && (
-                    <div className="bg-red-50 text-red-700 p-4 rounded-lg border border-red-200 text-sm flex items-start gap-3">
-                        <AlertCircle className="mt-0.5 text-red-500" size={18} />
+                    <div className="bg-rose-50 text-rose-700 p-4 rounded-xl border border-rose-200 text-sm flex items-start gap-3">
+                        <AlertCircle className="mt-0.5 text-rose-500 shrink-0" size={18} />
                         <span>{error}</span>
                     </div>
                 )}
@@ -140,11 +141,11 @@ export default function LoanManagementContent() {
                 />
 
                 {/* Main Content */}
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
                     <div className="overflow-x-auto">
                         {/* Table Data Loan Transaction History */}
                         <table className="w-full text-left text-sm text-slate-600">
-                            <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 font-semibold">
+                            <thead className="bg-slate-100/80 border-b border-slate-200/80 text-slate-800 font-semibold">
                                 <tr>
                                     {tableTH.map((th, index) => (
                                         <TableCell
