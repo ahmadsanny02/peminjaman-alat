@@ -50,44 +50,44 @@ export default function AdminDashboardPage() {
 
             {/* Header */}
             <HeaderPage
-                icon={<LayoutDashboard className="text-blue-600" size={32} />}
-                title="Dashboard"
+                icon={<LayoutDashboard className="text-emerald-600" size={24} />}
+                title="Dashboard Admin"
+                subtitle="Ringkasan inventarisasi dan statistik aktivitas sistem PinjamKu."
             />
 
             {/* Error Response */}
             {error && (
-                <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded flex items-start gap-3">
-                    <AlertCircle className="text-red-500 mt-0.5" size={20} />
-                    <p className="text-red-700 text-sm">{error}</p>
+                <div className="bg-rose-50 border border-rose-200 p-4 rounded-xl flex items-start gap-3 text-rose-700 text-sm">
+                    <AlertCircle className="text-rose-500 mt-0.5 shrink-0" size={18} />
+                    <p>{error}</p>
                 </div>
             )}
 
             {/* Statistical Data */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {statCardData.map((item, index) => (
-
                     <StatCard key={index} title={item.title} colorClass={item.colorClass} value={item.value} icon={item.icon} isLoading={isLoading} />
                 ))}
             </div>
 
-
             {/* Procedure */}
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mt-8">
-                <h2 className="text-lg font-bold text-slate-800 mb-4">
+            <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs mt-6 space-y-3">
+                <h2 className="text-base font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
                     Prosedur Konfigurasi Sistem
                 </h2>
-                <ol className="list-decimal list-inside space-y-2 text-slate-600 text-sm">
-                    <li>
+                <ol className="list-decimal list-inside space-y-2.5 text-slate-600 text-sm pl-1">
+                    <li className="leading-relaxed">
                         Konfigurasikan entitas referensi pada menu{" "}
-                        <strong>Manajemen Kategori</strong> terlebih dahulu.
+                        <strong className="text-slate-800 font-semibold">Manajemen Kategori</strong> terlebih dahulu.
                     </li>
-                    <li>
+                    <li className="leading-relaxed">
                         Registrasikan spesifikasi fisik barang pada menu{" "}
-                        <strong>Manajemen Alat</strong>.
+                        <strong className="text-slate-800 font-semibold">Manajemen Alat</strong>.
                     </li>
-                    <li>
+                    <li className="leading-relaxed">
                         Pantau dan validasi arus keluar-masuk barang melalui menu{" "}
-                        <strong>Transaksi Peminjaman</strong>.
+                        <strong className="text-slate-800 font-semibold">Transaksi Peminjaman</strong>.
                     </li>
                 </ol>
             </div>
