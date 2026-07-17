@@ -196,8 +196,9 @@ export default function LoanTransactionHistoryContent() {
             <div className="space-y-6">
                 {/* Header */}
                 <HeaderPage
-                    icon={<History className="text-purple-600" size={32} />}
-                    title="Riwayat Transaksi"
+                    icon={<History className="text-emerald-600" size={24} />}
+                    title="Riwayat Transaksi Peminjaman"
+                    subtitle="Pantau status pengajuan, tenggat pengembalian, dan unggah bukti transaksi."
                 />
 
                 {/* Alert Message */}
@@ -226,10 +227,10 @@ export default function LoanTransactionHistoryContent() {
                 </FilterAndSearchData>
 
                 {/* Main Content */}
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-auto">
+                <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left text-sm text-slate-600">
-                            <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 font-semibold">
+                            <thead className="bg-slate-100/80 border-b border-slate-200/80 text-slate-800 font-semibold">
                                 <tr className="">
                                     {tableTH.map((th, index) => (
                                         <TableCell
