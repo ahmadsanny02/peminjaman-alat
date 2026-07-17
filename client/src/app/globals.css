@@ -6,15 +6,102 @@
   --color-brand-navy-light: #2b4c7e;
   --color-brand-emerald: #10b981;
   --color-brand-emerald-hover: #059669;
-  --color-brand-emerald-light: #ecfdf5;
-  --color-app-bg: #f8fafc;
-  --color-card-bg: #ffffff;
-  --color-border-subtle: #e2e8f0;
+  --color-brand-emerald-light: rgba(16, 185, 129, 0.1);
+  --color-app-bg: var(--app-bg);
+  --color-card-bg: var(--card-bg);
+  --color-border-subtle: var(--border-subtle);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
 }
 
 :root {
   scroll-behavior: smooth;
+  --app-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border-subtle: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
 }
+
+.dark {
+  --app-bg: #090d16;
+  --card-bg: #0f172a;
+  --border-subtle: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  /* Global utility class overrides for dark mode */
+  .bg-white {
+    background-color: var(--card-bg) !important;
+  }
+  .bg-slate-50 {
+    background-color: var(--app-bg) !important;
+  }
+  .bg-slate-100 {
+    background-color: var(--app-bg) !important;
+  }
+  .bg-slate-100\/80 {
+    background-color: var(--app-bg) !important;
+  }
+  .bg-slate-50\/50 {
+    background-color: var(--app-bg) !important;
+  }
+  
+  .text-slate-900 {
+    color: var(--text-primary) !important;
+  }
+  .text-slate-800 {
+    color: var(--text-primary) !important;
+  }
+  .text-slate-700 {
+    color: var(--text-primary) !important;
+  }
+  .text-slate-600 {
+    color: var(--text-secondary) !important;
+  }
+  .text-slate-500 {
+    color: var(--text-secondary) !important;
+  }
+  .text-slate-400 {
+    color: var(--text-secondary) !important;
+  }
+
+  .border-slate-200 {
+    border-color: var(--border-subtle) !important;
+  }
+  .border-slate-200\/80 {
+    border-color: var(--border-subtle) !important;
+  }
+  .border-slate-100 {
+    border-color: var(--border-subtle) !important;
+  }
+  .border-slate-800\/80 {
+    border-color: var(--border-subtle) !important;
+  }
+  .divide-slate-100 > * + * {
+    border-color: var(--border-subtle) !important;
+  }
+  .hover\:bg-slate-50\/80:hover {
+    background-color: rgba(30, 41, 59, 0.45) !important;
+  }
+  .hover\:bg-slate-50:hover {
+    background-color: rgba(30, 41, 59, 0.45) !important;
+  }
+
+  /* Direct element overrides for robust table borders */
+  table, thead, tbody, tr, th, td {
+    border-color: var(--border-subtle) !important;
+  }
+
+  /* Dark mode scrollbar theme */
+  ::-webkit-scrollbar-thumb {
+    background: #334155 !important;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569 !important;
+  }
+}
+
 
 ::-webkit-scrollbar {
   width: 6px;
