@@ -24,18 +24,18 @@ export default function LoginPage() {
 
                 {/* Header Logo */}
                 <div className="relative z-10 flex items-center gap-3">
-                    <div className="bg-blue-600/15 p-2 rounded-xl border border-blue-500/30 shadow-inner">
-                        <Wrench className="text-blue-400" size={24} />
+                    <div className="bg-emerald-500/15 p-2 rounded-xl border border-emerald-500/30 shadow-inner">
+                        <Wrench className="text-emerald-400" size={24} />
                     </div>
-                    <span className="text-xl font-black tracking-tight text-white bg-clip-text">
-                        Pinjam<span className="text-blue-500">ku</span>
+                    <span className="text-xl font-black tracking-tight text-white">
+                        Pinjam<span className="text-emerald-400">ku</span>
                     </span>
                 </div>
 
                 {/* Core Marketing Info */}
                 <div className="relative z-10 space-y-8 my-auto">
                     <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
                             <Sparkles size={12} />
                             <span>Interaksi Cepat & Otomatis</span>
                         </div>
@@ -57,7 +57,7 @@ export default function LoginPage() {
                             <div>
                                 <p className="text-xs text-slate-400 font-medium">Peminjaman Terakhir</p>
                                 <p className="text-sm font-bold text-white">Bor Listrik Bosch</p>
-                                <p className="text-[11px] text-slate-500">Oleh: Ahmad Sani</p>
+                                <p className="text-[11px] text-slate-500">Oleh: Peminjam</p>
                             </div>
                         </div>
                         <div className="flex flex-col items-end gap-1.5">
@@ -84,18 +84,18 @@ export default function LoginPage() {
             <div className="lg:col-span-7 xl:col-span-6 flex items-center justify-center p-6 sm:p-12 relative bg-slate-950">
                 
                 {/* Radial Glow */}
-                <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-600/5 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="w-full max-w-md space-y-8 relative z-10">
                     
                     {/* Header showing logo on mobile only */}
                     <div className="space-y-3">
                         <div className="flex items-center gap-2.5 lg:hidden justify-center mb-6">
-                            <div className="bg-blue-600/15 p-2 rounded-xl border border-blue-500/30">
-                                <Wrench className="text-blue-400" size={20} />
+                            <div className="bg-emerald-600/15 p-2 rounded-xl border border-emerald-500/30">
+                                <Wrench className="text-emerald-400" size={20} />
                             </div>
                             <span className="text-lg font-black tracking-tight text-white">
-                                Pinjam<span className="text-blue-500">ku</span>
+                                Pinjam<span className="text-emerald-400">ku</span>
                             </span>
                         </div>
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight max-lg:text-center">
@@ -108,8 +108,8 @@ export default function LoginPage() {
 
                     {/* Server Error Alert */}
                     {serverError && (
-                        <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-300 text-xs sm:text-sm rounded-xl flex items-start gap-3 animate-shake">
-                            <Shield className="text-red-400 mt-0.5 flex-shrink-0" size={18} />
+                        <div className="p-4 bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs sm:text-sm rounded-xl flex items-start gap-3 animate-shake">
+                            <Shield className="text-rose-400 mt-0.5 shrink-0" size={18} />
                             <span>{serverError}</span>
                         </div>
                     )}
@@ -123,19 +123,19 @@ export default function LoginPage() {
                                 Username
                             </label>
                             <div className="relative group">
-                                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-blue-400 transition-colors pointer-events-none">
+                                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-emerald-400 transition-colors pointer-events-none">
                                     <User size={18} />
                                 </span>
                                 <input
                                     type="text"
                                     {...register("username")}
-                                    className={`pl-11 pr-4 py-3 bg-slate-900/40 border ${errors.username ? "border-red-500/60 focus:ring-red-500/20" : "border-slate-800/80 focus:ring-blue-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-600 outline-none focus:ring-4 focus:border-blue-500 transition-all text-sm`}
+                                    className={`pl-11 pr-4 py-3 bg-slate-900/40 border ${errors.username ? "border-rose-500/60 focus:ring-rose-500/20" : "border-slate-800/80 focus:ring-emerald-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-600 outline-none focus:ring-4 focus:border-emerald-500 transition-all text-sm`}
                                     placeholder="Masukkan username"
                                     disabled={isLoading}
                                 />
                             </div>
                             {errors.username && (
-                                <p className="text-red-400 text-xs mt-1 ml-1 flex items-center gap-1.5">
+                                <p className="text-rose-400 text-xs mt-1 ml-1 flex items-center gap-1.5">
                                     <span>•</span> {errors.username.message}
                                 </p>
                             )}
@@ -149,13 +149,13 @@ export default function LoginPage() {
                                 </label>
                             </div>
                             <div className="relative group">
-                                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-blue-400 transition-colors pointer-events-none">
+                                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-emerald-400 transition-colors pointer-events-none">
                                     <Lock size={18} />
                                 </span>
                                 <input
                                     type={showPassword.password ? "text" : "password"}
                                     {...register("password")}
-                                    className={`pl-11 pr-12 py-3 bg-slate-900/40 border ${errors.password ? "border-red-500/60 focus:ring-red-500/20" : "border-slate-800/80 focus:ring-blue-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-600 outline-none focus:ring-4 focus:border-blue-500 transition-all text-sm`}
+                                    className={`pl-11 pr-12 py-3 bg-slate-900/40 border ${errors.password ? "border-rose-500/60 focus:ring-rose-500/20" : "border-slate-800/80 focus:ring-emerald-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-600 outline-none focus:ring-4 focus:border-emerald-500 transition-all text-sm`}
                                     placeholder="Masukkan password"
                                     disabled={isLoading}
                                 />
@@ -173,7 +173,7 @@ export default function LoginPage() {
                                 </button>
                             </div>
                             {errors.password && (
-                                <p className="text-red-400 text-xs mt-1 ml-1 flex items-center gap-1.5">
+                                <p className="text-rose-400 text-xs mt-1 ml-1 flex items-center gap-1.5">
                                     <span>•</span> {errors.password.message}
                                 </p>
                             )}
@@ -183,7 +183,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3.5 px-4 rounded-xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed mt-6 shadow-xl shadow-blue-500/10 cursor-pointer"
+                            className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed mt-6 shadow-xl shadow-emerald-600/20 cursor-pointer"
                         >
                             {isLoading ? (
                                 <span className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -201,7 +201,7 @@ export default function LoginPage() {
                         Belum memiliki akun?{" "}
                         <Link
                             href="/register"
-                            className="text-blue-400 hover:text-blue-300 font-semibold transition-colors underline underline-offset-4"
+                            className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors underline underline-offset-4"
                         >
                             Daftar di sini
                         </Link>
