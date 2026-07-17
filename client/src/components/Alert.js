@@ -3,19 +3,19 @@ import { useState } from "react";
 
 const ALERT_VARIANTS = {
     success: {
-        container: "bg-green-50 text-green-700 border-green-200",
-        icon: <CheckCircle className="text-green-500" size={18} />,
+        container: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
+        icon: <CheckCircle className="text-emerald-500" size={18} />,
     },
     error: {
-        container: "bg-red-50 text-red-700 border-red-200",
-        icon: <AlertCircle className="text-red-500" size={18} />,
+        container: "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20",
+        icon: <AlertCircle className="text-rose-500" size={18} />,
     },
     warning: {
-        container: "bg-yellow-50 text-yellow-700 border-yellow-200",
-        icon: <AlertTriangle className="text-yellow-500" size={18} />,
+        container: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
+        icon: <AlertTriangle className="text-amber-500" size={18} />,
     },
     info: {
-        container: "bg-blue-50 text-blue-700 border-blue-200",
+        container: "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
         icon: <Info className="text-blue-500" size={18} />,
     },
 };
