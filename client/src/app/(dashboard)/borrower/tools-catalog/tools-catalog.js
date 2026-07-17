@@ -57,35 +57,35 @@ export default function CatalogContent() {
                 {catalog.map((tool) => (
                     <div
                         key={tool.id}
-                        className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col transition-shadow hover:shadow-md h-120"
+                        className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md hover:-translate-y-1"
                     >
-                        <div className="flex flex-col flex-1 gap-2">
-                            <div className="">
+                        <div className="flex flex-col flex-1 p-3">
+                            <div className="overflow-hidden rounded-xl bg-slate-100 mb-3">
                                 <Image
                                     src={`http://localhost:5000${tool.image}`}
                                     alt={tool.name}
                                     width={500}
                                     height={500}
-                                    className="flex w-full h-52 rounded-lg"
+                                    className="w-full h-48 object-cover rounded-xl hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
                                     unoptimized
                                 />
                             </div>
-                            <div className="px-5">
-                                <div className="text-xs font-semibold text-blue-600 bg-blue-50 inline-block px-2 py-1 rounded mb-3">
+                            <div className="px-1 space-y-1.5">
+                                <span className="inline-block text-[11px] font-bold text-emerald-700 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
                                     {tool.Category?.name || "Tanpa Kategori"}
-                                </div>
-                                <h3 className="text-sm font-bold text-slate-800 mb-2 leading-tight">
+                                </span>
+                                <h3 className="text-sm font-bold text-slate-800 leading-snug line-clamp-2">
                                     {tool.name}
                                 </h3>
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-y-4 p-4">
-                            <div className="flex items-center gap-2 mt-4 text-sm">
-                                <span className="text-slate-500">Stok:</span>
+                        <div className="flex flex-col gap-3 p-4 border-t border-slate-100 bg-slate-50/50">
+                            <div className="flex items-center justify-between text-xs">
+                                <span className="text-slate-500 font-medium">Ketersediaan Stok:</span>
                                 <span
-                                    className={`font-bold ${tool.stock > 0 ? "text-emerald-600" : "text-red-500"}`}
+                                    className={`font-extrabold px-2 py-0.5 rounded-md ${tool.stock > 0 ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-600"}`}
                                 >
                                     {tool.stock} unit
                                 </span>
@@ -93,7 +93,7 @@ export default function CatalogContent() {
                             <button
                                 onClick={() => openRequestForm(tool)}
                                 disabled={tool.stock < 1}
-                                className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white p-2 rounded text-sm font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors cursor-pointer"
+                                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-sm font-semibold shadow-md shadow-emerald-600/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98] cursor-pointer"
                             >
                                 {tool.stock > 0 ? "Ajukan Peminjaman" : "Stok Habis"}
                             </button>
@@ -103,76 +103,77 @@ export default function CatalogContent() {
                             <Modal
                                 customClass={
                                     showForm
-                                        ? "fixed inset-0 h-full flex items-center justify-center"
+                                        ? "fixed inset-0 h-full flex items-center justify-center z-50"
                                         : "hidden"
                                 }
                                 isOpen={openRequestForm}
                             >
                                 {/* Header */}
                                 <HeaderForm
-                                    icon={<Package size={25} className="text-blue-600" />}
-                                    title="Form Pengajuan Peminjaman Alat"
+                                    icon={<Package size={22} className="text-emerald-600" />}
+                                    title="Pengajuan Peminjaman Alat"
                                 />
 
                                 {/* Form */}
-                                <form onSubmit={onSubmit} className="space-y-3">
+                                <form onSubmit={onSubmit} className="space-y-4">
                                     <input type="hidden" {...register("toolId")} />
 
-                                    <Image
-                                        src={`http://localhost:5000${tool.image}`}
-                                        alt={tool.name}
-                                        width={500}
-                                        height={500}
-                                        className="flex w-full h-72 rounded-lg"
-                                        unoptimized
-                                    />
+                                    <div className="overflow-hidden rounded-xl bg-slate-100 border border-slate-200/60 max-h-56">
+                                        <Image
+                                            src={`http://localhost:5000${tool.image}`}
+                                            alt={tool.name}
+                                            width={500}
+                                            height={500}
+                                            className="w-full h-56 object-cover rounded-xl"
+                                            unoptimized
+                                        />
+                                    </div>
 
-                                    <div className="">
+                                    <div>
                                         <Label name="Nama Alat" />
                                         <input
                                             type="text"
                                             value={tool.name}
-                                            className="w-full p-2 border disabled:text-slate-400 rounded focus:ring-2 focus:ring-blue-500 outline-none text-sm border-slate-300"
+                                            className="w-full px-3.5 py-2.5 border border-slate-200 bg-slate-100 text-slate-600 font-semibold rounded-xl text-sm outline-none"
                                             disabled
                                         />
                                     </div>
 
                                     <div>
-                                        <label className="block text-xs font-medium text-slate-700 mb-1">
-                                            Tenggat Pengembalian
-                                        </label>
+                                        <Label name="Tenggat Pengembalian" required />
                                         <input
                                             type="date"
                                             {...register("expectedReturnDate")}
-                                            className={`w-full p-2 border text-black rounded focus:ring-2 focus:ring-blue-500 outline-none text-sm cursor-pointer ${errors.expectedReturnDate ? "border-red-500" : "border-slate-300"}`}
+                                            className={`w-full px-3.5 py-2.5 border text-slate-800 rounded-xl focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none text-sm cursor-pointer ${errors.expectedReturnDate ? "border-rose-500" : "border-slate-300/80"}`}
                                             min={today}
                                             max={maxDay}
                                             disabled={isSubmitting}
                                         />
                                         {errors.expectedReturnDate && (
-                                            <span className="text-red-500 text-[10px] mt-1 block leading-tight">
+                                            <span className="text-rose-500 text-xs mt-1 block">
                                                 {errors.expectedReturnDate.message}
                                             </span>
                                         )}
                                     </div>
 
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-2 pt-2">
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white p-2 rounded text-sm font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors cursor-pointer"
+                                            className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl text-sm font-semibold shadow-md shadow-emerald-600/20 disabled:opacity-50 transition-all cursor-pointer"
                                         >
                                             {isSubmitting ? (
                                                 "Memproses..."
                                             ) : (
                                                 <>
-                                                    <CheckCircle2 size={16} /> Konfirmasi
+                                                    <CheckCircle2 size={16} /> Konfirmasi Peminjaman
                                                 </>
                                             )}
                                         </button>
                                         <button
+                                            type="button"
                                             onClick={closeRequestForm}
-                                            className="text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer p-2 rounded"
+                                            className="p-2.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-xl border border-slate-200 transition-colors cursor-pointer"
                                             title="Batal"
                                         >
                                             <X size={18} />
