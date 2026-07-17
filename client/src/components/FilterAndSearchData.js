@@ -18,28 +18,31 @@ export default function FilterAndSearchData({
     useFilterAndSearchData();
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <div
-          className={`border border-white/15 hover:bg-white/15 ${showFilterData ? "bg-white/15" : ""} transition-all ease-in-out duration-300 flex items-center gap-2 p-2 rounded-2xl cursor-pointer`}
+    <div className="space-y-4">
+      <div className="flex items-center gap-3">
+        {/* Filter Toggle Button */}
+        <button
+          type="button"
+          className={`border border-slate-200/80 bg-white hover:bg-slate-100 ${
+            showFilterData ? "bg-slate-100 border-emerald-500/40 text-emerald-700" : "text-slate-700"
+          } transition-all duration-200 flex items-center gap-2 px-3.5 py-2.5 rounded-xl cursor-pointer text-sm font-semibold shadow-xs`}
           onClick={() => setShowFilterData(!showFilterData)}
         >
-          <Filter size={20} />
-          <h1 className="font-semibold max-md:hidden">Filter</h1>
-        </div>
+          <Filter size={18} />
+          <span className="max-md:hidden">Filter</span>
+        </button>
 
-        {/* Input Search and Button Add Data */}
+        {/* Input Search Data */}
         {hiddenSearchData ? (
-          //  Input Search Data
           <div
-            className={`flex items-center bg-white/15 backdrop-blur-2xl p-2 gap-2 rounded-2xl w-full`}
+            className="flex items-center bg-white border border-slate-200/80 px-3.5 py-2 gap-2.5 rounded-xl w-full shadow-xs text-slate-800 focus-within:ring-4 focus-within:ring-emerald-500/20 focus-within:border-emerald-500 transition-all"
           >
-            <Search />
+            <Search size={18} className="text-slate-400 shrink-0" />
             <input
               type="text"
-              className="outline-none focus:border-b w-full"
+              className="outline-none w-full text-sm bg-transparent placeholder:text-slate-400"
               onChange={search}
-              placeholder={placeHolderName}
+              placeholder={placeHolderName || "Cari data..."}
               defaultValue={searchParams.get("search")?.toString()}
             />
           </div>
@@ -47,52 +50,50 @@ export default function FilterAndSearchData({
 
         {/* Button Add Data */}
         {hiddenButtonAddData ? (
-          <div
-            className="bg-blue-500 p-2 cursor-pointer max-w-fit rounded-2xl"
+          <button
+            type="button"
+            className="bg-emerald-600 hover:bg-emerald-700 text-white p-2.5 px-4 cursor-pointer rounded-xl transition-all duration-200 active:scale-[0.98] shadow-md shadow-emerald-600/20 shrink-0 flex items-center gap-2 text-sm font-semibold"
             onClick={isShowForm}
           >
-            <Plus />
-          </div>
+            <Plus size={18} />
+            <span className="hidden sm:inline">Tambah</span>
+          </button>
         ) : null}
       </div>
 
-      <form className={`space-y-6 ${showFilterData ? "" : "hidden"}`}>
-        <div className="flex items-center gap-4">
-          {/* Sort Data */}
-          <div className="flex flex-col space-y-1">
-            <label className="">Urutkan</label>
-            <div className="bg-white/15 backdrop-blur-2xl p-2 rounded-lg">
+      {/* Expanded Filter Panel */}
+      {showFilterData && (
+        <form className="p-4 bg-white rounded-xl border border-slate-200/80 shadow-xs animate-fade-in-up space-y-4">
+          <div className="flex flex-wrap items-center gap-4">
+            {/* Sort Data */}
+            <div className="flex flex-col space-y-1.5 min-w-[160px]">
+              <label className="text-xs font-semibold uppercase tracking-wider text-slate-600">Urutkan</label>
               <select
-                className="outline-none cursor-pointer w-full"
+                className="bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl p-2 outline-none focus:ring-2 focus:ring-emerald-500/20 cursor-pointer"
                 onChange={sort}
               >
-                <option className="bg-white/20 text-black" value="ASC">
-                  Ascending
-                </option>
-                <option className="bg-white/20 text-black" value="DESC">
-                  Descending
-                </option>
+                <option value="ASC">A-Z (Ascending)</option>
+                <option value="DESC">Z-A (Descending)</option>
               </select>
             </div>
-          </div>
 
-          {/* Filter Data */}
-          {hiddenFilterData ? (
-            <div className="flex flex-col space-y-1">
-              <label className="">{label}</label>
-              <div className="bg-white/15 backdrop-blur-2xl p-2 rounded-lg">
+            {/* Filter Data Optional */}
+            {hiddenFilterData ? (
+              <div className="flex flex-col space-y-1.5 min-w-[160px]">
+                <label className="text-xs font-semibold uppercase tracking-wider text-slate-600">{label || "Filter"}</label>
                 <select
-                  className="outline-none cursor-pointer w-full"
+                  className="bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl p-2 outline-none focus:ring-2 focus:ring-emerald-500/20 cursor-pointer"
                   onChange={showBy}
                 >
                   <Option optionName="Semua" optionValue="" />
                   {children}
                 </select>
               </div>
-            </div>
-          ) : null}
-        </div>
-      </form>
+            ) : null}
+          </div>
+        </form>
+      )}
     </div>
   );
 }
+
