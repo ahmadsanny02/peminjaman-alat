@@ -23,13 +23,13 @@ const ConfirmationModal = ({
                 onClick={onCancel}
             />
 
-            <div className="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 shadow-2xl transition-all animate-in fade-in zoom-in duration-200">
+            <div className="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-card-bg border border-border-subtle p-6 shadow-2xl transition-all animate-in fade-in zoom-in duration-200">
                 <div className="text-center sm:text-left">
-                    <h3 className="text-xl font-semibold leading-6 text-gray-900">
+                    <h3 className="text-xl font-semibold leading-6 text-text-primary">
                         {title}
                     </h3>
                     <div className="mt-3">
-                        <p className="text-sm text-gray-500 leading-relaxed">{message}</p>
+                        <p className="text-sm text-text-secondary leading-relaxed">{message}</p>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@ const ConfirmationModal = ({
                     <button
                         type="button"
                         onClick={onCancel}
-                        className="inline-flex justify-center rounded-xl px-5 py-2.5 text-sm font-semibold text-gray-700 border border-gray-200 bg-white hover:bg-gray-50 transition-colors cursor-pointer"
+                        className="inline-flex justify-center rounded-xl px-5 py-2.5 text-sm font-semibold text-text-secondary border border-border-subtle bg-card-bg hover:bg-app-bg transition-colors cursor-pointer"
                     >
                         Batal
                     </button>
