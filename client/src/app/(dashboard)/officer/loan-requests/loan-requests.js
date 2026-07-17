@@ -213,8 +213,9 @@ export default function LoanRequestsContent() {
             <div className="space-y-6">
                 {/* Header */}
                 <HeaderPage
-                    icon={<ClipboardCheck className="text-emerald-600" size={32} />}
-                    title="Daftar Peminjaman"
+                    icon={<ClipboardCheck className="text-emerald-600" size={24} />}
+                    title="Daftar Peminjaman Alat"
+                    subtitle="Kelola dan verifikasi persetujuan peminjaman serta pengembalian alat."
                 />
 
                 {/* Alert Message */}
@@ -234,11 +235,11 @@ export default function LoanRequestsContent() {
                 />
 
                 {/* Main Content */}
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
                     <div className="overflow-x-auto">
                         {/* Loan Request History Data */}
                         <table className="w-full text-left text-sm text-slate-600">
-                            <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 font-semibold">
+                            <thead className="bg-slate-100/80 border-b border-slate-200/80 text-slate-800 font-semibold">
                                 <tr>
                                     {tableTH.map((th, index) => (
                                         <TableCell key={index} className={th.className}>
