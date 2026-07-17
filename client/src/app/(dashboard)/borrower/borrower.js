@@ -33,20 +33,20 @@ export default function BorrowerDashboardContent() {
         {
             title: "Alat Tersedia",
             value: availableTools,
-            icon: <BadgeCheck size={24} className="text-emerald-600" />,
-            colorClass: "bg-emerald-100",
+            icon: <BadgeCheck size={22} className="text-emerald-600" />,
+            colorClass: "bg-emerald-500/10 border border-emerald-500/20",
         },
         {
             title: "Menunggu Persetujuan",
             value: pendingCount,
-            icon: <Clock size={24} className="text-amber-600" />,
-            colorClass: "bg-amber-100",
+            icon: <Clock size={22} className="text-amber-600" />,
+            colorClass: "bg-amber-500/10 border border-amber-500/20",
         },
         {
             title: "Alat Dipinjam",
             value: activeCount,
-            icon: <Activity size={24} className="text-red-600" />,
-            colorClass: "bg-red-100",
+            icon: <Activity size={22} className="text-blue-600" />,
+            colorClass: "bg-blue-500/10 border border-blue-500/20",
         },
     ];
 
@@ -54,12 +54,13 @@ export default function BorrowerDashboardContent() {
         <div className="space-y-6">
             {/* Header */}
             <HeaderPage
-                icon={<LayoutDashboard className="text-blue-600" size={32} />}
-                title="Dashboard"
+                icon={<LayoutDashboard className="text-emerald-600" size={24} />}
+                title="Dashboard Peminjam"
+                subtitle="Selamat datang kembali! Temukan instrumen dan kelola peminjaman Anda."
             />
 
             {/* Statistical Data */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {statCardData.map((item, index) => (
                     <StatCard
                         key={index}
@@ -67,44 +68,48 @@ export default function BorrowerDashboardContent() {
                         value={item.value}
                         icon={item.icon}
                         colorClass={item.colorClass}
+                        isLoading={isLoading}
                     />
                 ))}
             </div>
 
-            {/* Announcement */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mt-8">
-                <div className="bg-linear-to-br from-blue-50 to-white p-6 rounded-xl border border-blue-100 shadow-sm">
-                    <h2 className="text-lg font-bold text-slate-800 mb-2">
-                        Eksplorasi Katalog
+            {/* Quick Action Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+                <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-all space-y-3">
+                    <h2 className="text-base font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                        Eksplorasi Katalog Alat
                     </h2>
-                    <p className="text-slate-600 text-sm mb-4">
-                        Tinjau spesifikasi dan ketersediaan stok instrumen fisik yang
-                        diregistrasikan oleh administrator untuk kebutuhan simulasi Anda.
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                        Tinjau spesifikasi, ketersediaan stok, dan deskripsi instrumen fisik yang tersedia untuk dipinjam.
                     </p>
                     <Link
                         href="/borrower/tools-catalog"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors pt-1"
                     >
-                        Buka Katalog Alat <ArrowRight size={16} />
+                        <span>Buka Katalog Alat</span>
+                        <ArrowRight size={16} />
                     </Link>
                 </div>
 
-                <div className="bg-linear-to-br from-purple-50 to-white p-6 rounded-xl border border-purple-100 shadow-sm">
-                    <h2 className="text-lg font-bold text-slate-800 mb-2">
+                <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-all space-y-3">
+                    <h2 className="text-base font-bold text-slate-800 tracking-tight flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-indigo-500" />
                         Pantau Status Transaksi
                     </h2>
-                    <p className="text-slate-600 text-sm mb-4">
-                        Verifikasi persetujuan dari petugas dan pastikan Anda mengembalikan
-                        instrumen sesuai dengan tenggat waktu operasional.
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                        Verifikasi persetujuan dari petugas dan unggah bukti pengembalian alat sesuai tenggat waktu.
                     </p>
                     <Link
                         href="/borrower/transactions-history"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-purple-600 hover:text-purple-800 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-1"
                     >
-                        Lihat Riwayat Saya <ArrowRight size={16} />
+                        <span>Lihat Riwayat Saya</span>
+                        <ArrowRight size={16} />
                     </Link>
                 </div>
             </div>
         </div>
     );
 }
+
