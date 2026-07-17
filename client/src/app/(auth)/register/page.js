@@ -329,7 +329,7 @@ export default function RegisterPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3 px-4 rounded-xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed mt-6 shadow-xl shadow-blue-500/10 cursor-pointer"
+                            className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed mt-6 shadow-xl shadow-emerald-600/20 cursor-pointer"
                         >
                             {isLoading ? (
                                 <span className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -347,7 +347,7 @@ export default function RegisterPage() {
                         Sudah memiliki akun?{" "}
                         <Link
                             href="/login"
-                            className="text-blue-400 hover:text-blue-300 font-semibold transition-colors underline underline-offset-4"
+                            className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors underline underline-offset-4"
                         >
                             Masuk di sini
                         </Link>
