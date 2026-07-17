@@ -1,8 +1,8 @@
-const TableCell = ({ isHeader, children, className, colspan }) => {
+const TableCell = ({ isHeader, children, className = "", colspan }) => {
     return isHeader ? (
-        <th className={`border-slate-200 px-3 py-4 border ${className}`}>{children}</th>
+        <th className={`px-4 py-3.5 text-xs uppercase tracking-wider font-bold text-slate-700 ${className}`}>{children}</th>
     ) : (
-        <td className={`border-slate-200 px-3 py-4 border ${className}`}
+        <td className={`px-4 py-3.5 text-sm text-slate-700 ${className}`}
             colSpan={colspan}
         >
             {children}
@@ -11,3 +11,4 @@ const TableCell = ({ isHeader, children, className, colspan }) => {
 };
 
 export default TableCell;
+
