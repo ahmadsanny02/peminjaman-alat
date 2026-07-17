@@ -105,14 +105,15 @@ export default function ActivityLogContent() {
             <div className="space-y-6">
                 {/* Header */}
                 <HeaderPage
-                    icon={<ActivitySquare className="text-cyan-600" size={32} />}
+                    icon={<ActivitySquare className="text-emerald-600" size={24} />}
                     title="Log Aktivitas"
+                    subtitle="Catatan riwayat aktivitas pengguna dan perubahan data dalam sistem."
                 />
 
                 {/* Error Response */}
                 {error && (
-                    <div className="bg-red-50 text-red-700 p-4 rounded-lg flex gap-3 text-sm">
-                        <AlertCircle size={18} className="mt-0.5" /> <span>{error}</span>
+                    <div className="bg-rose-50 text-rose-700 p-4 rounded-xl border border-rose-200 flex gap-3 text-sm">
+                        <AlertCircle size={18} className="mt-0.5 shrink-0 text-rose-500" /> <span>{error}</span>
                     </div>
                 )}
 
@@ -128,7 +129,7 @@ export default function ActivityLogContent() {
                     {dataActivity.map((activity) => (
                         <option
                             key={activity}
-                            className="bg-white/20 text-black"
+                            className="bg-white text-slate-800"
                             value={activity}
                         >
                             {activity}
@@ -137,10 +138,10 @@ export default function ActivityLogContent() {
                 </FilterAndSearchData>
 
                 {/* Table Data Log Activity */}
-                <div className="bg-white rounded-xl border border-slate-200 shadow-sm">
-                    <div className="overflow-x-auto rounded-2xl">
+                <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+                    <div className="overflow-x-auto">
                         <table className="w-full text-left text-sm text-slate-600">
-                            <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 font-semibold">
+                            <thead className="bg-slate-100/80 border-b border-slate-200/80 text-slate-800 font-semibold">
                                 <tr>
                                     {tableTH.map((th, index) => (
                                         <TableCell
