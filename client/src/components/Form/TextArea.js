@@ -1,15 +1,16 @@
-const TextArea = ({ type, name, value, onChange, rows, className, placeholder, disabled }) => {
+const TextArea = ({ name, value, onChange, rows = 4, className = "", placeholder, disabled, ...props }) => {
     return (
         <textarea
             name={name}
             value={value}
             onChange={onChange}
             rows={rows}
-            className={`w-full text-gray-900 p-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-colors text-sm resize-none ${className}`}
+            className={`w-full text-slate-800 bg-white px-3.5 py-2.5 border border-slate-300/80 rounded-xl focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all text-sm placeholder:text-slate-400 shadow-xs resize-none disabled:bg-slate-100 disabled:cursor-not-allowed ${className}`}
             placeholder={placeholder}
             disabled={disabled}
+            {...props}
         />
-    )
-}
+    );
+};
 
-export default TextArea
+export default TextArea;
