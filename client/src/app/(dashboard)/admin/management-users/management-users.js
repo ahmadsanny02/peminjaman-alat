@@ -210,10 +210,10 @@ export default function UserManagementContent() {
                         ))}
                     </FilterAndSearchData>
 
-                    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
                         <div className="overflow-x-auto">
                             <table className="w-full text-sm text-slate-600">
-                                <thead className="bg-slate-50 border-b border-slate-200 text-slate-800 font-semibold">
+                                <thead className="bg-slate-100/80 border-b border-slate-200/80 text-slate-800 font-semibold">
                                     <tr className="">
                                         {tableTH.map((th, index) => (
                                             <TableCell key={index} isHeader={true} className={th.className}>
