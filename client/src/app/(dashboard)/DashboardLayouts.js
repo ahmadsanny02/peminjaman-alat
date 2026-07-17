@@ -3,7 +3,7 @@
 import Sidebar from "@/components/layout/Sidebar";
 import { useSidebar } from "@/hooks/useSidebar";
 import { useDarkMode } from "@/hooks/useDarkMode";
-import { Calendar, Menu, Sun, Moon } from "lucide-react";
+import { Calendar, PanelLeft, Sun, Moon } from "lucide-react";
 
 export default function DashboardLayout({ children }) {
     const { sidebar, setSidebar } = useSidebar();
@@ -28,7 +28,7 @@ export default function DashboardLayout({ children }) {
                         onClick={() => setSidebar(!sidebar)}
                         aria-label="Toggle Sidebar"
                     >
-                        <Menu size={20} />
+                        <PanelLeft size={20} />
                     </button>
 
                     {/* Actions and Info */}
