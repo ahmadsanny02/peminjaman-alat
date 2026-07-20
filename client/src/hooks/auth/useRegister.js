@@ -21,6 +21,12 @@ export const useRegister = () => {
     } = useForm({
         resolver: zodResolver(registerSchema),
         mode: "onChange",
+        defaultValues: {
+            fullName: "",
+            username: "",
+            password: "",
+            confirmPassword: "",
+        },
     });
 
     const executeRegister = async (data) => {
@@ -46,10 +52,13 @@ export const useRegister = () => {
         }
     };
 
+    const passwordValue = watch("password", "");
+
     return {
         register,
         errors,
         watch,
+        passwordValue,
         isLoading,
         serverError,
         onSubmit: handleSubmit(executeRegister),
