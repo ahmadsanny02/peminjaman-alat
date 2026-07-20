@@ -29,7 +29,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Dashboard */}
                     <Link
                         href="/admin"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/admin"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
@@ -48,7 +48,7 @@ export default function Sidebar({ className = "" }) {
                     <div>
                         <button
                             onClick={() => setIsManageDataOpen(!isManageDataOpen)}
-                            className="w-full group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:bg-app-bg hover:text-text-primary transition-all duration-200 cursor-pointer"
+                            className="w-full group flex items-center justify-between px-3.5 py-2.5 rounded-xl font-medium text-text-secondary hover:bg-app-bg hover:text-text-primary transition-all duration-200 cursor-pointer"
                         >
                             <div className="flex items-center gap-3">
                                 <Folder size={18} className="shrink-0" />
@@ -61,7 +61,7 @@ export default function Sidebar({ className = "" }) {
                             <div className="relative pl-6 border-l border-border-subtle ml-5.5 space-y-1.5 my-1.5">
                                 <Link
                                     href="/admin/management-categories"
-                                    className={`flex items-center gap-3 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                                    className={`flex items-center gap-3 px-3 py-1.5 rounded-lg transition-all duration-200 ${
                                         pathname === "/admin/management-categories"
                                             ? "text-emerald-500 font-bold"
                                             : "text-text-secondary hover:text-text-primary"
@@ -72,7 +72,7 @@ export default function Sidebar({ className = "" }) {
                                 </Link>
                                 <Link
                                     href="/admin/management-tools"
-                                    className={`flex items-center gap-3 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                                    className={`flex items-center gap-3 px-3 py-1.5 rounded-lg transition-all duration-200 ${
                                         pathname === "/admin/management-tools"
                                             ? "text-emerald-500 font-bold"
                                             : "text-text-secondary hover:text-text-primary"
@@ -83,7 +83,7 @@ export default function Sidebar({ className = "" }) {
                                 </Link>
                                 <Link
                                     href="/admin/management-users"
-                                    className={`flex items-center gap-3 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                                    className={`flex items-center gap-3 px-3 py-1.5 rounded-lg transition-all duration-200 ${
                                         pathname === "/admin/management-users"
                                             ? "text-emerald-500 font-bold"
                                             : "text-text-secondary hover:text-text-primary"
@@ -99,7 +99,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Transaksi Peminjaman */}
                     <Link
                         href="/admin/loan-transactions"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/admin/loan-transactions"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
@@ -112,7 +112,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Log Aktivitas */}
                     <Link
                         href="/admin/activity-logs"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/admin/activity-logs"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
@@ -131,7 +131,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Dashboard */}
                     <Link
                         href="/officer"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/officer"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
@@ -149,7 +149,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Daftar Peminjaman */}
                     <Link
                         href="/officer/loan-requests"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/officer/loan-requests"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
@@ -168,7 +168,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Dashboard */}
                     <Link
                         href="/borrower"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/borrower"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
@@ -186,7 +186,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Katalog Alat */}
                     <Link
                         href="/borrower/tools-catalog"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/borrower/tools-catalog"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
@@ -199,7 +199,7 @@ export default function Sidebar({ className = "" }) {
                     {/* Riwayat Transaksi */}
                     <Link
                         href="/borrower/transactions-history"
-                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 ${
                             pathname === "/borrower/transactions-history"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
