@@ -4,22 +4,17 @@ const LevelUser = () => {
     return (
         <section
             id="user-role"
-            className="py-16 lg:py-24 bg-linear-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] relative overflow-hidden"
+            className="py-16 lg:py-24 bg-app-bg text-text-primary transition-colors duration-200 relative overflow-hidden"
         >
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-400 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
-            </div>
-
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16 animate-fade-in-up">
-                    <span className="inline-block px-4 py-2 bg-white/10 text-emerald-400 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm">
+                    <span className="inline-block px-4 py-1.5 bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/30 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">
                         Value Proposition
                     </span>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                    <h2 className="text-3xl lg:text-4xl font-extrabold text-text-primary mb-4 tracking-tight">
                         Sistem 3 Level Pengguna
                     </h2>
-                    <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
                         Hak akses yang terstruktur untuk keamanan dan efisiensi operasional
                     </p>
                 </div>
