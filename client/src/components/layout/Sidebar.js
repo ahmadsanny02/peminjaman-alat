@@ -29,21 +29,19 @@ export default function Sidebar({ className = "" }) {
                     {/* Dashboard */}
                     <Link
                         href="/admin"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/admin"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <LayoutDashboard size={18} className="shrink-0" />
-                            <span>Dashboard</span>
-                        </div>
+                        <LayoutDashboard size={18} className="shrink-0" />
+                        <span>Dashboard</span>
                     </Link>
 
                     {/* Group Label */}
                     <span className="block px-3.5 pt-4 pb-1 text-[10px] font-bold text-text-secondary/60 uppercase tracking-wider">
-                        Platform
+                        Menu Utama
                     </span>
 
                     {/* Collapsible Manajemen Data */}
@@ -101,33 +99,27 @@ export default function Sidebar({ className = "" }) {
                     {/* Transaksi Peminjaman */}
                     <Link
                         href="/admin/loan-transactions"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/admin/loan-transactions"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <ClipboardList size={18} className="shrink-0" />
-                            <span>Transaksi Peminjaman</span>
-                        </div>
-                        <ChevronRight size={14} className="text-text-secondary/40 group-hover:text-text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+                        <ClipboardList size={18} className="shrink-0" />
+                        <span>Transaksi Peminjaman</span>
                     </Link>
 
                     {/* Log Aktivitas */}
                     <Link
                         href="/admin/activity-logs"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/admin/activity-logs"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <ActivitySquare size={18} className="shrink-0" />
-                            <span>Log Aktivitas</span>
-                        </div>
-                        <ChevronRight size={14} className="text-text-secondary/40 group-hover:text-text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+                        <ActivitySquare size={18} className="shrink-0" />
+                        <span>Log Aktivitas</span>
                     </Link>
                 </div>
             );
@@ -139,37 +131,32 @@ export default function Sidebar({ className = "" }) {
                     {/* Dashboard */}
                     <Link
                         href="/officer"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/officer"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <LayoutDashboard size={18} className="shrink-0" />
-                            <span>Dashboard</span>
-                        </div>
+                        <LayoutDashboard size={18} className="shrink-0" />
+                        <span>Dashboard</span>
                     </Link>
 
                     {/* Group Label */}
                     <span className="block px-3.5 pt-4 pb-1 text-[10px] font-bold text-text-secondary/60 uppercase tracking-wider">
-                        Platform
+                        Menu Utama
                     </span>
 
                     {/* Daftar Peminjaman */}
                     <Link
                         href="/officer/loan-requests"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/officer/loan-requests"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <ClipboardList size={18} className="shrink-0" />
-                            <span>Daftar Peminjaman</span>
-                        </div>
-                        <ChevronRight size={14} className="text-text-secondary/40 group-hover:text-text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+                        <ClipboardList size={18} className="shrink-0" />
+                        <span>Daftar Peminjaman</span>
                     </Link>
                 </div>
             );
@@ -181,53 +168,45 @@ export default function Sidebar({ className = "" }) {
                     {/* Dashboard */}
                     <Link
                         href="/borrower"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/borrower"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <LayoutDashboard size={18} className="shrink-0" />
-                            <span>Dashboard</span>
-                        </div>
+                        <LayoutDashboard size={18} className="shrink-0" />
+                        <span>Dashboard</span>
                     </Link>
 
                     {/* Group Label */}
                     <span className="block px-3.5 pt-4 pb-1 text-[10px] font-bold text-text-secondary/60 uppercase tracking-wider">
-                        Platform
+                        Menu Utama
                     </span>
 
                     {/* Katalog Alat */}
                     <Link
                         href="/borrower/tools-catalog"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/borrower/tools-catalog"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <PackageSearch size={18} className="shrink-0" />
-                            <span>Katalog Alat</span>
-                        </div>
-                        <ChevronRight size={14} className="text-text-secondary/40 group-hover:text-text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+                        <PackageSearch size={18} className="shrink-0" />
+                        <span>Katalog Alat</span>
                     </Link>
 
                     {/* Riwayat Transaksi */}
                     <Link
                         href="/borrower/transactions-history"
-                        className={`group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        className={`group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                             pathname === "/borrower/transactions-history"
                                 ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
                                 : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
                         }`}
                     >
-                        <div className="flex items-center gap-3">
-                            <ClipboardList size={18} className="shrink-0" />
-                            <span>Riwayat Transaksi</span>
-                        </div>
-                        <ChevronRight size={14} className="text-text-secondary/40 group-hover:text-text-primary group-hover:translate-x-0.5 transition-all shrink-0" />
+                        <ClipboardList size={18} className="shrink-0" />
+                        <span>Riwayat Transaksi</span>
                     </Link>
                 </div>
             );
