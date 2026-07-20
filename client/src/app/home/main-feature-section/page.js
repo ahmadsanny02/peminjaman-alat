@@ -16,75 +16,65 @@ const Feature = () => {
         {
             title: "Login & Logout",
             description: "Autentikasi aman dengan sistem role-based access control",
-            icon: <SquareArrowLeft />,
-            className: " from-[#e0e9ff] to-[#c7d6fe]",
+            icon: <SquareArrowLeft size={22} />,
         },
         {
             title: "CRUD User",
             description: "Kelola data pengguna dengan berbagai level akses",
-            icon: <Users />,
-            className: "from-emerald-100 to-emerald-200",
+            icon: <Users size={22} />,
         },
         {
             title: "CRUD Alat",
             description: "Manajemen inventaris alat dengan detail lengkap",
-            icon: <Package />,
-            className: "from-blue-100 to-blue-200",
+            icon: <Package size={22} />,
         },
         {
             title: "CRUD Kategori",
             description: "Organisasi alat berdasarkan kategori yang fleksibel",
-            icon: <List />,
-            className: "from-purple-100 to-purple-200",
+            icon: <List size={22} />,
         },
         {
             title: "CRUD Peminjaman",
             description: "Proses peminjaman dari pengajuan hingga persetujuan",
-            icon: <Archive />,
-            className: "from-orange-100 to-orange-200",
+            icon: <Archive size={22} />,
         },
         {
             title: "CRUD Pengembalian",
             description: "Kelola pengembalian alat dengan status kondisi",
-            icon: <Undo2 />,
-            className: "from-teal-100 to-teal-200",
+            icon: <Undo2 size={22} />,
         },
         {
             title: "Log Aktivitas",
             description: "Rekam semua aktivitas untuk audit dan transparansi",
-            icon: <Activity />,
-            className: "from-rose-100 to-rose-200",
+            icon: <Activity size={22} />,
         },
         {
             title: "Persetujuan Peminjaman",
             description: "Sistem approval bertingkat untuk kontrol yang ketat",
-            icon: <PackageCheck />,
-            className: "from-indigo-100 to-indigo-200",
+            icon: <PackageCheck size={22} />,
         },
         {
             title: "Monitoring Pengembalian",
             description: "Pantau jadwal dan status pengembalian real-time",
-            icon: <History />,
-            className: "from-cyan-100 to-cyan-200",
+            icon: <History size={22} />,
         },
         {
             title: "Pengajuan Mandiri",
             description: "Peminjam dapat mengajukan permohonan secara mandiri",
-            icon: <UserPlus />,
-            className: "from-amber-100 to-amber-200",
+            icon: <UserPlus size={22} />,
         },
     ];
     return (
-        <section id="feature" className="py-16 lg:py-24">
+        <section id="feature" className="py-16 lg:py-24 bg-app-bg text-text-primary transition-colors duration-200">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16 animate-fade-in-up">
-                    <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-4">
+                    <span className="inline-block px-4 py-1.5 bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">
                         Fitur Lengkap
                     </span>
-                    <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 mb-4">
+                    <h2 className="text-3xl lg:text-4xl font-extrabold text-text-primary mb-4 tracking-tight">
                         Fitur Utama Sistem
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
                         Kelola semua aspek peminjaman alat dengan fitur yang komprehensif
                     </p>
                 </div>
@@ -93,18 +83,16 @@ const Feature = () => {
                     {listFeature.map((feat, index) => {
                         return (
                             <div
-                                className="feature-card group bg-white rounded-2xl p-6 border border-gray-100 hover:border-navy-200 hover:shadow-xl transition-all duration-300"
+                                className="feature-card group bg-card-bg rounded-2xl p-6 border border-border-subtle hover:border-emerald-500/50 hover:shadow-xl transition-all duration-300"
                                 key={index}
                             >
-                                <div
-                                    className={`bg-linear-to-br ${feat.className} w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                                >
+                                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 group-hover:scale-110 transition-transform">
                                     {feat.icon}
                                 </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                <h3 className="text-base font-bold text-text-primary mb-2">
                                     {feat.title}
                                 </h3>
-                                <p className="text-sm text-gray-600">{feat.description}</p>
+                                <p className="text-xs text-text-secondary leading-relaxed">{feat.description}</p>
                             </div>
                         );
                     })}
