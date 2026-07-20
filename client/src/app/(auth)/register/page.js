@@ -13,11 +13,10 @@ export default function RegisterPage() {
         serverError,
         onSubmit,
         watch,
+        passwordValue,
         showPassword,
         toggleVisibility,
     } = useRegister();
-
-    const passwordValue = watch("password", "");
 
     const calculateStrength = (pass) => {
         let score = 0;
