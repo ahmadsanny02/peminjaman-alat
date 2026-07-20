@@ -66,14 +66,14 @@ export default function RegisterPage() {
                         <Wrench className="text-blue-400" size={24} />
                     </div>
                     <span className="text-xl font-extrabold tracking-tight text-white">
-                        Pinjam<span className="text-blue-450">ku</span>
+                        Pinjam<span className="text-blue-400">ku</span>
                     </span>
                 </div>
 
                 {/* Core Marketing Info */}
                 <div className="relative z-10 space-y-8 my-auto">
                     <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-450 text-xs font-semibold">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
                             <Sparkles size={12} />
                             <span>Proses Cepat & Praktis</span>
                         </div>
