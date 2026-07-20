@@ -50,77 +50,77 @@ export default function RegisterPage() {
     return (
         <div className="min-h-screen grid lg:grid-cols-12 bg-app-bg text-text-primary overflow-hidden font-sans transition-colors duration-200">
             
-            {/* BRANDING/INFO PANEL - Visible only on large screens */}
-            <div className="lg:col-span-5 xl:col-span-6 relative hidden lg:flex flex-col justify-between p-12 bg-linear-to-br from-slate-100 via-blue-500/5 to-slate-50 border-r border-border-subtle dark:from-slate-900 dark:via-blue-950 dark:to-slate-950 dark:border-slate-800/80 transition-colors duration-200 overflow-hidden">
+            {/* BRANDING/INFO PANEL - Visible only on large screens (Always premium dark themed) */}
+            <div className="lg:col-span-5 xl:col-span-6 relative hidden lg:flex flex-col justify-between p-12 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-950 border-r border-slate-900 overflow-hidden">
                 
                 {/* Background Glows */}
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-500/5 rounded-full blur-[80px] pointer-events-none" />
                 
                 {/* Background Grid Pattern */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-70 dark:opacity-30 pointer-events-none" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
 
                 {/* Header Logo */}
                 <div className="relative z-10 flex items-center gap-3">
                     <div className="bg-blue-600/15 p-2 rounded-xl border border-blue-500/30 shadow-xs">
-                        <Wrench className="text-blue-600 dark:text-blue-400" size={24} />
+                        <Wrench className="text-blue-400" size={24} />
                     </div>
-                    <span className="text-xl font-extrabold tracking-tight text-text-primary">
-                        Pinjam<span className="text-blue-600 dark:text-blue-400">ku</span>
+                    <span className="text-xl font-extrabold tracking-tight text-white">
+                        Pinjam<span className="text-blue-450">ku</span>
                     </span>
                 </div>
 
                 {/* Core Marketing Info */}
                 <div className="relative z-10 space-y-8 my-auto">
                     <div className="space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-450 text-xs font-semibold">
                             <Sparkles size={12} />
                             <span>Proses Cepat & Praktis</span>
                         </div>
-                        <h1 className="text-4xl xl:text-5xl font-extrabold text-text-primary leading-tight tracking-tight">
+                        <h1 className="text-4xl xl:text-5xl font-extrabold text-white leading-tight tracking-tight">
                             Gabung Sekarang & <br />
                             Mulai Ajukan Alat Anda.
                         </h1>
-                        <p className="text-text-secondary text-base max-w-lg leading-relaxed">
+                        <p className="text-slate-400 text-base max-w-lg leading-relaxed">
                             Cukup buat akun, pilih alat yang tersedia di katalog, dan ajukan peminjaman. Sistem kami akan mempercepat verifikasi peminjaman Anda.
                         </p>
                     </div>
 
                     {/* Step-by-Step Registration Guide Card */}
-                    <div className="bg-card-bg/60 backdrop-blur-md border border-border-subtle p-5 rounded-2xl shadow-2xl max-w-md space-y-4">
-                        <h3 className="text-sm font-bold text-text-primary flex items-center gap-2">
-                            <CheckCircle2 className="text-blue-600 dark:text-blue-400" size={16} />
+                    <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800/80 p-5 rounded-2xl shadow-2xl max-w-md space-y-4">
+                        <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                            <CheckCircle2 className="text-blue-400" size={16} />
                             Alur Pengajuan Alat
                         </h3>
                         <div className="space-y-3">
                             <div className="flex gap-3">
-                                <div className="h-6 w-6 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0 border border-blue-500/25">
+                                <div className="h-6 w-6 rounded-full bg-blue-500/15 text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0 border border-blue-500/25">
                                     1
                                 </div>
-                                <p className="text-xs text-text-secondary font-semibold mt-0.5">Daftarkan akun dan masuk ke dalam sistem</p>
+                                <p className="text-xs text-slate-300 font-medium mt-0.5">Daftarkan akun dan masuk ke dalam sistem</p>
                             </div>
                             <div className="flex gap-3">
-                                <div className="h-6 w-6 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0 border border-blue-500/25">
+                                <div className="h-6 w-6 rounded-full bg-blue-500/15 text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0 border border-blue-500/25">
                                     2
                                 </div>
-                                <p className="text-xs text-text-secondary font-semibold mt-0.5">Cari alat kerja pada Katalog Alat dan tentukan tanggal pengembalian</p>
+                                <p className="text-xs text-slate-300 font-medium mt-0.5">Cari alat kerja pada Katalog Alat dan tentukan tanggal pengembalian</p>
                             </div>
                             <div className="flex gap-3">
-                                <div className="h-6 w-6 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0 border border-blue-500/25">
+                                <div className="h-6 w-6 rounded-full bg-blue-500/15 text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0 border border-blue-500/25">
                                     3
                                 </div>
-                                <p className="text-xs text-text-secondary font-semibold mt-0.5">Tunggu persetujuan petugas, ambil alatnya, dan mulai gunakan!</p>
+                                <p className="text-xs text-slate-300 font-medium mt-0.5">Tunggu persetujuan petugas, ambil alatnya, dan mulai gunakan!</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Footer */}
-                <div className="relative z-10 flex items-center justify-between text-xs text-text-secondary/70">
+                <div className="relative z-10 flex items-center justify-between text-xs text-slate-500">
                     <p>© 2026 Pinjamku. All rights reserved.</p>
                     <div className="flex gap-4">
-                        <a href="#" className="hover:text-text-primary transition-colors">Syarat & Ketentuan</a>
-                        <a href="#" className="hover:text-text-primary transition-colors">Bantuan</a>
+                        <a href="#" className="hover:text-white text-slate-400 transition-colors">Syarat & Ketentuan</a>
+                        <a href="#" className="hover:text-white text-slate-400 transition-colors">Bantuan</a>
                     </div>
                 </div>
             </div>
