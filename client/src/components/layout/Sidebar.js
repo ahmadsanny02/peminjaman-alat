@@ -48,7 +48,13 @@ export default function Sidebar({ className = "" }) {
                     <div>
                         <button
                             onClick={() => setIsManageDataOpen(!isManageDataOpen)}
-                            className="w-full group flex items-center justify-between px-3.5 py-2.5 rounded-xl font-medium text-text-secondary hover:bg-app-bg hover:text-text-primary transition-all duration-200 cursor-pointer"
+                            className={`w-full group flex items-center justify-between px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+                                pathname === "/admin/management-categories" ||
+                                pathname === "/admin/management-tools" ||
+                                pathname === "/admin/management-users"
+                                    ? "bg-emerald-600 text-white font-semibold shadow-lg shadow-emerald-600/25"
+                                    : "text-text-secondary hover:bg-app-bg hover:text-text-primary"
+                            }`}
                         >
                             <div className="flex items-center gap-3">
                                 <Folder size={18} className="shrink-0" />
