@@ -57,7 +57,7 @@ export default function LoginPage() {
                             <div>
                                 <p className="text-xs text-slate-400 font-medium">Peminjaman Terakhir</p>
                                 <p className="text-sm font-bold text-white">Bor Listrik Bosch</p>
-                                <p className="text-[11px] text-slate-500">Oleh: Peminjam</p>
+                                <p className="text-[11px] text-slate-350">Oleh: Peminjam</p>
                             </div>
                         </div>
                         <div className="flex flex-col items-end gap-1.5">
@@ -65,7 +65,7 @@ export default function LoginPage() {
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                                 Aktif
                             </span>
-                            <span className="text-[10px] text-slate-400 font-medium">Kembali: Besok</span>
+                            <span className="text-[10px] text-slate-300 font-medium">Kembali: Besok</span>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ export default function LoginPage() {
                                 <input
                                     type="text"
                                     {...register("username")}
-                                    className={`pl-11 pr-4 py-3 bg-slate-900/40 border ${errors.username ? "border-rose-500/60 focus:ring-rose-500/20" : "border-slate-800/80 focus:ring-emerald-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-600 outline-none focus:ring-4 focus:border-emerald-500 transition-all text-sm`}
+                                    className={`pl-11 pr-4 py-3 bg-slate-900/40 border ${errors.username ? "border-rose-500/60 focus:ring-rose-500/20" : "border-slate-800/80 focus:ring-emerald-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-400 outline-none focus:ring-4 focus:border-emerald-500 transition-all text-sm`}
                                     placeholder="Masukkan username"
                                     disabled={isLoading}
                                 />
@@ -155,7 +155,7 @@ export default function LoginPage() {
                                 <input
                                     type={showPassword.password ? "text" : "password"}
                                     {...register("password")}
-                                    className={`pl-11 pr-12 py-3 bg-slate-900/40 border ${errors.password ? "border-rose-500/60 focus:ring-rose-500/20" : "border-slate-800/80 focus:ring-emerald-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-600 outline-none focus:ring-4 focus:border-emerald-500 transition-all text-sm`}
+                                    className={`pl-11 pr-12 py-3 bg-slate-900/40 border ${errors.password ? "border-rose-500/60 focus:ring-rose-500/20" : "border-slate-800/80 focus:ring-emerald-500/20"} rounded-xl w-full text-slate-100 placeholder-slate-400 outline-none focus:ring-4 focus:border-emerald-500 transition-all text-sm`}
                                     placeholder="Masukkan password"
                                     disabled={isLoading}
                                 />
@@ -197,7 +197,7 @@ export default function LoginPage() {
                     </form>
 
                     {/* Navigation to Register */}
-                    <div className="pt-4 text-center text-sm text-slate-500">
+                    <div className="pt-4 text-center text-sm text-slate-400">
                         Belum memiliki akun?{" "}
                         <Link
                             href="/register"
